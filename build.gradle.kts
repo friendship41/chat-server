@@ -5,6 +5,7 @@ plugins {
     id("io.spring.dependency-management") version "1.0.10.RELEASE"
     kotlin("jvm") version "1.4.10"
     kotlin("plugin.spring") version "1.4.10"
+    kotlin("plugin.jpa") version "1.4.10"
 }
 
 group = "com.friendship41"
@@ -27,12 +28,16 @@ dependencies {
     // cloud config
     implementation("org.springframework.cloud:spring-cloud-starter-config:2.2.6.RELEASE")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
+    // validation
+    implementation("org.springframework.boot:spring-boot-starter-validation")
     // DB
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin")
+    implementation("org.jetbrains.kotlin:kotlin-noarg")
 
     // connection, jdbc, log4jdbc
     implementation("com.zaxxer:HikariCP:3.4.5")
