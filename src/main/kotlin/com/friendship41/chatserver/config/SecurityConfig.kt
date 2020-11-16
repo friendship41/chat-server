@@ -18,7 +18,6 @@ import org.springframework.security.authentication.BadCredentialsException
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
-import org.springframework.security.config.http.SessionCreationPolicy
 import org.springframework.security.core.Authentication
 import org.springframework.security.core.authority.SimpleGrantedAuthority
 import org.springframework.security.core.context.SecurityContextHolder
@@ -48,7 +47,8 @@ class WebSecurityConfig(
                 .formLogin().disable()
                 .logout().disable()
                 .csrf().disable()
-                .authorizeRequests().antMatchers("/qwe").hasAuthority("USER")
+                .authorizeRequests()
+                .antMatchers("/message", "/room").hasAuthority("USER")
                 .and()
                 .addFilterBefore(
                         JwtAuthenticationFilter(jwtTokenProvider),
