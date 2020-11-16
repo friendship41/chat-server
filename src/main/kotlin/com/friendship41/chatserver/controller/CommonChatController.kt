@@ -28,14 +28,14 @@ class CommonChatController(
                     null))
         }
         commonChatService.createCommonMessage(commonMessage)
-        simpMessagingTemplate.convertAndSend("/sub/${commonMessage.commonChatRoom!!.roomId}", commonMessage)
+        simpMessagingTemplate.convertAndSend("/sub/room/${commonMessage.commonChatRoom!!.roomId}", commonMessage)
     }
 
     // config에 의해 /pub이 붙음
     @MessageMapping("/member")
     fun publishCommonMessageToMember(messageWithTarget: MessageWithTarget) {
         for (targetMemberNo: Int in messageWithTarget.targetMemberNoList) {
-            simpMessagingTemplate.convertAndSend("/sub/$targetMemberNo", messageWithTarget.commonMessage)
+            simpMessagingTemplate.convertAndSend("/sub/member/$targetMemberNo", messageWithTarget.commonMessage)
         }
     }
 
