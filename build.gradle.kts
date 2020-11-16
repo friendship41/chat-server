@@ -40,7 +40,6 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-noarg")
 
     // connection, jdbc, log4jdbc
-    implementation("com.zaxxer:HikariCP:3.4.5")
     implementation("mysql:mysql-connector-java:8.0.22")
     implementation("org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4:1.16")
 
