@@ -19,6 +19,7 @@ class CommonChatController(
         @Autowired private val commonChatService: CommonChatService) {
 
     // config에 의해 /pub이 붙음
+    // @Header(value = "access_token", required = false) accessToken: String? 헤더로 토큰 받는법
     @MessageMapping("/room")
     fun publishCommonMessageToRoom(commonMessage: CommonMessage) {
         if (commonMessage.commonChatRoom == null || commonMessage.commonChatRoom!!.roomId == null) {
